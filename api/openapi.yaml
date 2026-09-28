@@ -1,1 +1,195 @@
+openapi: 3.0.3
+info:
+  title: Diet Control System API
+  description: API cho hệ thống kiểm soát chế độ ăn
+  version: 1.0.0
+servers:
+  - url: https://api.dietcontrol.vn/v1
+    description: Production server
+  - url: http://localhost:3000/v1
+    description: Development server
 
+paths:
+  /auth/register:
+    post:
+      summary: Đăng ký tài khoản
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 8
+      responses:
+        '201':
+          description: Đăng ký thành công
+        '400':
+          description: Dữ liệu không hợp lệ
+        '409':
+          description: Email đã tồn tại
+        '500':
+          description: Lỗi server
+
+  /auth/login:
+    post:
+      summary: Đăng nhập
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Trả về JWT token
+        '401':
+          description: Sai email hoặc mật khẩu
+
+  /foods/search:
+    get:
+      summary: Tìm kiếm thực phẩm
+      tags: [Food]
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Danh sách thực phẩm
+        '400':
+          description: Thiếu tham số q
+
+  /meals:
+    post:
+      summary: Tạo bữa ăn mới
+      tags: [Meal]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [mealType, date]
+              properties:
+                mealType:
+                  type: string
+                  enum: [breakfast, lunch, dinner, snack]
+                date:
+                  type: string
+                  format: date
+      responses:
+        '201':
+          description: Tạo thành công
+
+  /meals/{mealId}/items:
+    post:
+      summary: Thêm món vào bữa ăn
+      tags: [Meal]
+      parameters:
+        - name: mealId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [foodId, quantity]
+              properties:
+                foodId:
+                  type: string
+                  format: uuid
+                quantity:
+                  type: number
+                unit:
+                  type: string
+                  default: g
+      responses:
+        '200':
+          description: Thêm thành công
+        '404':
+          description: Không tìm thấy bữa ăn hoặc món
+
+  /reports/generate:
+    post:
+      summary: Xuất báo cáo PDF
+      tags: [Report]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [startDate, endDate]
+              properties:
+                startDate:
+                  type: string
+                  format: date
+                endDate:
+                  type: string
+                  format: date
+      responses:
+        '200':
+          description: URL file PDF
+        '400':
+          description: Không có dữ liệu
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Food:
+      type: object
+      properties:
+        foodId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        calories:
+          type: number
+        carbs:
+          type: number
+        protein:
+          type: number
+        fat:
+          type: number
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            code:
+              type: string
