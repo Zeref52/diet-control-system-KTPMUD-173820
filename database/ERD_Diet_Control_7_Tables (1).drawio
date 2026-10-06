@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="diet-control-erd" name="ERD - Diet Control System">
+    <mxGraphModel dx="1572" dy="1868" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="users" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="&lt;b&gt;USERS&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; user_id : UUID&lt;br&gt;&lt;b&gt;UQ&lt;/b&gt; email : VARCHAR(255)&lt;br&gt;password_hash : VARCHAR(255)&lt;br&gt;created_at : TIMESTAMP" vertex="1">
+          <mxGeometry height="150" width="280" x="70" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="foods" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="&lt;b&gt;FOODS&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; food_id : UUID&lt;br&gt;name : VARCHAR(255)&lt;br&gt;calories : DECIMAL(10,2)&lt;br&gt;carbs : DECIMAL(10,2)&lt;br&gt;protein : DECIMAL(10,2)&lt;br&gt;fat : DECIMAL(10,2)" vertex="1">
+          <mxGeometry height="170" width="280" x="700" y="-90" as="geometry" />
+        </mxCell>
+        <mxCell id="meals" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="&lt;b&gt;MEALS&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; meal_id : UUID&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; user_id : UUID&lt;br&gt;meal_type : VARCHAR(50)&lt;br&gt;meal_date : DATE" vertex="1">
+          <mxGeometry height="135" width="280" x="280" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="meal_items" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="&lt;b&gt;MEAL_ITEMS&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; item_id : UUID&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; meal_id : UUID&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; food_id : UUID&lt;br&gt;quantity : DECIMAL(10,2)&lt;br&gt;unit : VARCHAR(20)" vertex="1">
+          <mxGeometry height="155" width="300" x="690" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="goals" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="&lt;b&gt;GOALS&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; goal_id : UUID&lt;br&gt;&lt;b&gt;FK + UQ&lt;/b&gt; user_id : UUID&lt;br&gt;target_calories : DECIMAL(10,2)&lt;br&gt;target_carbs : DECIMAL(10,2)&lt;br&gt;target_protein : DECIMAL(10,2)&lt;br&gt;target_fat : DECIMAL(10,2)&lt;br&gt;updated_at : TIMESTAMP" vertex="1">
+          <mxGeometry height="185" width="300" x="60" y="522.5" as="geometry" />
+        </mxCell>
+        <mxCell id="alerts" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="&lt;b&gt;ALERTS&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; alert_id : UUID&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; user_id : UUID&lt;br&gt;title : VARCHAR(255)&lt;br&gt;message : TEXT&lt;br&gt;is_read : BOOLEAN&lt;br&gt;created_at : TIMESTAMP" vertex="1">
+          <mxGeometry height="170" width="300" x="1000" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="reports" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d4e1f5;strokeColor=#3d85c6;fontSize=13;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;" value="&lt;b&gt;REPORTS&lt;/b&gt;&lt;hr&gt;&lt;b&gt;PK&lt;/b&gt; report_id : UUID&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; user_id : UUID&lt;br&gt;start_date : DATE&lt;br&gt;end_date : DATE&lt;br&gt;file_url : TEXT&lt;br&gt;created_at : TIMESTAMP" vertex="1">
+          <mxGeometry height="170" width="300" x="1260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e_users_meals" edge="1" parent="1" source="users" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" target="meals" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_meals_items" edge="1" parent="1" source="meals" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" target="meal_items" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_foods_items" edge="1" parent="1" source="foods" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" target="meal_items" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_users_goals" edge="1" parent="1" source="users" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;startArrow=ERone;strokeWidth=2;" target="goals" value="1 : 1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_users_alerts" edge="1" parent="1" source="users" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" target="alerts" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_users_reports" edge="1" parent="1" source="users" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;startArrow=ERone;strokeWidth=2;" target="reports" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
