@@ -1,0 +1,153 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="vZY3_1-5uQz4r7ddykN1" name="Page-1">
+    <mxGraphModel dx="1858" dy="1025" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="E1" parent="1" style="rounded=0;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" value="E1&#xa;Người dùng chính" vertex="1">
+          <mxGeometry height="60" width="160" x="450" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="E2" parent="1" style="rounded=0;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" value="E2&#xa;Người được ủy quyền" vertex="1">
+          <mxGeometry height="60" width="160" x="60" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="UHlmiCtZs532-C4YaHJp-4" edge="1" parent="1" source="E3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="P2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UHlmiCtZs532-C4YaHJp-5" connectable="0" parent="UHlmiCtZs532-C4YaHJp-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Thêm/sửa/xóa thực phẩm" vertex="1">
+          <mxGeometry relative="1" x="-0.0643" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E3" parent="1" style="rounded=0;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" value="E3&#xa;Admin" vertex="1">
+          <mxGeometry height="60" width="160" x="10" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="E4" parent="1" style="rounded=0;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" value="E4&#xa;Notification Service" vertex="1">
+          <mxGeometry height="60" width="180" x="1000" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="E5" parent="1" style="rounded=0;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" value="E5&#xa;Cloud Storage" vertex="1">
+          <mxGeometry height="60" width="180" x="870" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="P1" parent="1" style="ellipse;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=11;" value="P1&#xa;Quản lý tài khoản&#xa;&amp; hồ sơ&#xa;(UC-01,02)" vertex="1">
+          <mxGeometry height="140" width="140" x="460" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="P2" parent="1" style="ellipse;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=11;" value="P2&#xa;Quản lý thực phẩm&#xa;(UC-04,05,06,07,21)" vertex="1">
+          <mxGeometry height="140" width="140" x="130" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="UHlmiCtZs532-C4YaHJp-9" edge="1" parent="1" source="P3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="P2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UHlmiCtZs532-C4YaHJp-10" connectable="0" parent="UHlmiCtZs532-C4YaHJp-9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Yêu cầu thông tin dinh dưỡng" vertex="1">
+          <mxGeometry relative="1" x="0.086" y="-4" as="geometry">
+            <mxPoint x="20" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P3" parent="1" style="ellipse;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=11;" value="P3&#xa;Quản lý bữa ăn&#xa;(UC-08,09,12)" vertex="1">
+          <mxGeometry height="140" width="140" x="190" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="P4" parent="1" style="ellipse;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=11;" value="P4&#xa;Mục tiêu &amp; tiến độ&#xa;(UC-03,10,13)" vertex="1">
+          <mxGeometry height="140" width="140" x="700" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="P5" parent="1" style="ellipse;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=11;" value="P5&#xa;Cảnh báo &amp; nhắc nhở&#xa;(UC-11,16,17,18)" vertex="1">
+          <mxGeometry height="140" width="140" x="700" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="P6" parent="1" style="ellipse;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=11;" value="P6&#xa;Báo cáo &amp; chia sẻ&#xa;(UC-14,15)" vertex="1">
+          <mxGeometry height="140" width="140" x="610" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="P7" parent="1" style="ellipse;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=11;" value="P7&#xa;Ủy quyền &amp; Audit&#xa;(UC-19,20)" vertex="1">
+          <mxGeometry height="140" width="140" x="70" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="D1" parent="1" style="shape=partialRectangle;html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=11;top=0;bottom=0;left=1;right=0;" value="D1 | USERS / PROFILES" vertex="1">
+          <mxGeometry height="40" width="200" x="730" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D2" parent="1" style="shape=partialRectangle;html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=11;top=0;bottom=0;left=1;right=0;" value="D2 | FOODS" vertex="1">
+          <mxGeometry height="40" width="200" x="100" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="D3" parent="1" style="shape=partialRectangle;html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=11;top=0;bottom=0;left=1;right=0;" value="D3 | MEALS / MEAL_ITEMS" vertex="1">
+          <mxGeometry height="40" width="200" x="20" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="D4" parent="1" style="shape=partialRectangle;html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=11;top=0;bottom=0;left=1;right=0;" value="D4 | GOALS" vertex="1">
+          <mxGeometry height="40" width="200" x="950" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="D5" parent="1" style="shape=partialRectangle;html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=11;top=0;bottom=0;left=1;right=0;" value="D5 | ALERTS / REMINDERS" vertex="1">
+          <mxGeometry height="40" width="200" x="870" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="D6" parent="1" style="shape=partialRectangle;html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=11;top=0;bottom=0;left=1;right=0;" value="D6 | REPORTS" vertex="1">
+          <mxGeometry height="40" width="200" x="650" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="D7" parent="1" style="shape=partialRectangle;html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=11;top=0;bottom=0;left=1;right=0;" value="D7 | AUTHORIZATIONS / AUDIT LOGS" vertex="1">
+          <mxGeometry height="40" width="240" x="310" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="f01" edge="1" parent="1" source="E1" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="P1" value="Thông tin đăng ký, hồ sơ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f02" edge="1" parent="1" source="E1" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="P2" value="Từ khóa, mã vạch,&#xa;thông tin thực phẩm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f03" edge="1" parent="1" source="E1" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="P3" value="Thông tin bữa ăn,&#xa;món ăn, khối lượng">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f04" edge="1" parent="1" source="E1" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="P4" value="Mục tiêu, yêu cầu&#xa;xem tiến độ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f05" edge="1" parent="1" source="E1" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="P6" value="Yêu cầu xuất/chia sẻ báo cáo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f06" edge="1" parent="1" source="E1" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="P7" value="Yêu cầu ủy quyền">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f10" edge="1" parent="1" source="P1" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="D1" value="Thông tin tài khoản/hồ sơ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f11" edge="1" parent="1" source="P2" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="D2" value="Thông tin thực phẩm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f12" edge="1" parent="1" source="P3" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="D3" value="Bữa ăn, món ăn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f13" edge="1" parent="1" source="P4" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="D4" value="Mục tiêu dinh dưỡng">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f14" edge="1" parent="1" source="P5" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="D5" value="Cảnh báo, nhắc nhở">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f15" edge="1" parent="1" source="P6" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="D6" value="Thông tin báo cáo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f16" edge="1" parent="1" source="P7" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="D7" value="Thông tin ủy quyền/audit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f22" edge="1" parent="1" source="P3" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="P4" value="Tổng dinh dưỡng">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f23" edge="1" parent="1" source="P4" style="endArrow=classic;html=1;fontSize=10;rounded=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" target="P5" value="Ngưỡng/điều kiện cảnh báo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f30" edge="1" parent="1" source="P5" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="E4" value="Yêu cầu gửi cảnh báo/nhắc nhở">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f40" edge="1" parent="1" source="P6" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="E5" value="File PDF">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f50" edge="1" parent="1" source="E2" style="endArrow=classic;html=1;fontSize=10;rounded=1;" target="P7" value="Xác nhận ủy quyền">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UHlmiCtZs532-C4YaHJp-7" edge="1" parent="1" source="P2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.093;entryY=0.225;entryDx=0;entryDy=0;entryPerimeter=0;" target="P3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UHlmiCtZs532-C4YaHJp-8" connectable="0" parent="UHlmiCtZs532-C4YaHJp-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Dữ liệu dinh dưỡng" vertex="1">
+          <mxGeometry relative="1" x="0.2071" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UHlmiCtZs532-C4YaHJp-11" edge="1" parent="1" source="E5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.979;entryY=0.682;entryDx=0;entryDy=0;entryPerimeter=0;" target="P6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UHlmiCtZs532-C4YaHJp-12" connectable="0" parent="UHlmiCtZs532-C4YaHJp-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="URL file PDF" vertex="1">
+          <mxGeometry relative="1" x="0.0539" y="4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
