@@ -9,6 +9,14 @@ router.post('/generate', (req, res) => {
       error: { message: 'startDate và endDate là bắt buộc', code: 'MISSING_FIELDS' }
     });
   }
+  if (start > end) {
+    return res.status(400).json({
+        error: {
+            message: 'startDate phải nhỏ hơn hoặc bằng endDate',
+            code: 'INVALID_DATE_RANGE'
+        }
+    });
+}
   res.status(200).json({
     message: 'Tạo báo cáo thành công',
     reportId: `report-${Date.now()}`,
