@@ -28,11 +28,23 @@ router.post('/:mealId/items', (req, res) => {
       error: { message: 'Không tìm thấy bữa ăn', code: 'MEAL_NOT_FOUND' }
     });
   }
-  if (!foodId || !quantity) {
-    return res.status(400).json({
-      error: { message: 'foodId và quantity là bắt buộc', code: 'MISSING_FIELDS' }
-    });
-  }
+ if (!foodId || quantity == null) {
+  return res.status(400).json({
+    error: {
+      message: 'foodId và quantity là bắt buộc',
+      code: 'MISSING_FIELDS'
+    }
+  });
+}
+
+if (typeof quantity !== 'number' || quantity <= 0) {
+  return res.status(400).json({
+    error: {
+      message: 'quantity phải là số lớn hơn 0',
+      code: 'INVALID_QUANTITY'
+    }
+  });
+}
   const newItem = { itemId: `item-${Date.now()}`, foodId, quantity, unit };
   meal.items.push(newItem);
   meal.totalCalories += 450;
