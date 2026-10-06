@@ -4,12 +4,59 @@ info:
   description: API cho hệ thống kiểm soát chế độ ăn
   version: 1.0.0
 servers:
-  - url: https://api.dietcontrol.vn/v1
+  - url: https://api.dietcontrol.vn/api
     description: Production server
-  - url: http://localhost:3000/v1
+  - url: http://localhost:3000/
     description: Development server
 
 paths:
+  /alerts:
+    get:
+      summary: Lấy danh sách cảnh báo
+      tags: [Alert]
+      responses:
+        '200':
+          description: Danh sách cảnh báo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  alerts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Alert'
+                  unreadCount:
+                    type: integer
+                    example: 1
+
+  /alerts/{alertId}/read:
+    put:
+      summary: Đánh dấu cảnh báo đã đọc
+      tags: [Alert]
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Đã đánh dấu cảnh báo là đã đọc
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Đã đánh dấu cảnh báo là đã đọc
+                  alertId:
+                    type: string
+                    example: alert-001
+        '404':
+          description: Không tìm thấy cảnh báo
+          
   /auth/register:
     post:
       summary: Đăng ký tài khoản
@@ -80,7 +127,68 @@ paths:
           description: Danh sách thực phẩm
         '400':
           description: Thiếu tham số q
+          
+  /foods/{foodId}:
+    get:
+      summary: Lấy thông tin thực phẩm
+      tags: [Food]
+      parameters:
+        - name: foodId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Thông tin thực phẩm
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Food'
+        '404':
+          description: Không tìm thấy món ăn
 
+  /goals:
+    get:
+      summary: Lấy mục tiêu dinh dưỡng
+      tags: [Goal]
+      responses:
+        '200':
+          description: Mục tiêu dinh dưỡng
+
+    post:
+      summary: Cập nhật mục tiêu dinh dưỡng
+      tags: [Goal]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - targetCalories
+                - targetCarbs
+                - targetProtein
+                - targetFat
+              properties:
+                targetCalories:
+                  type: number
+                  minimum: 0
+                targetCarbs:
+                  type: number
+                  minimum: 0
+                targetProtein:
+                  type: number
+                  minimum: 0
+                targetFat:
+                  type: number
+                  minimum: 0
+      responses:
+        '200':
+          description: Cập nhật mục tiêu thành công
+        '400':
+          description: Dữ liệu không hợp lệ
+          
   /meals:
     post:
       summary: Tạo bữa ăn mới
@@ -133,6 +241,20 @@ paths:
       responses:
         '200':
           description: Thêm thành công
+            content:
+               application/json:
+                schema:
+                 type: object
+                 properties:
+                  message:
+                   type: string
+                  token:
+                   type: string
+                  userId:
+                   type: object
+                  email:
+                   type: string
+                   format: email 
         '404':
           description: Không tìm thấy bữa ăn hoặc món
 
@@ -156,7 +278,25 @@ paths:
                   format: date
       responses:
         '200':
-          description: URL file PDF
+          description: Tạo báo cáo thành công
+          content:
+           application/json:
+            schema:
+             type: object
+             properties:
+              message:
+               type: string
+              reportId:
+               type: string
+              fileUrl:
+               type: string
+               format: uri
+              startDate:
+               type: string
+               format: date
+              endDate:
+               type: string
+               format: date
         '400':
           description: Không có dữ liệu
 
@@ -167,6 +307,21 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
+   Alert:
+      type: object
+      properties:
+        alertId:
+          type: string
+          example: alert-001
+        title:
+          type: string
+          example: Nhắc nhở bữa trưa
+        message:
+          type: string
+          example: Bạn chưa ghi chép bữa trưa hôm nay.
+        isRead:
+          type: boolean
+          example: false
     Food:
       type: object
       properties:
