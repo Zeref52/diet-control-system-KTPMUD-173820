@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-
+const authMiddleware = require('./middleware/auth.middleware');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -41,6 +41,13 @@ app.use((err, req, res, next) => {
       message: err.message || 'Internal Server Error',
       code: err.code || 'INTERNAL_ERROR'
     }
+  });
+});
+
+app.get('/api/auth/me', authMiddleware, (req, res) => {
+  res.status(200).json({
+    message: 'Xác thực thành công',
+    user: req.user
   });
 });
 
