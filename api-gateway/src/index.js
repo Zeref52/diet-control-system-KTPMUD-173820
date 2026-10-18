@@ -24,6 +24,14 @@ app.use('/api/goals', require('./routes/goals'));
 app.use('/api/reports', require('./routes/reports'));
 app.use('/api/alerts', require('./routes/alerts'));
 
+
+app.get('/api/auth/me', authMiddleware, (req, res) => {
+  res.status(200).json({
+    message: 'Xác thực thành công',
+    user: req.user
+  });
+});
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({
@@ -41,13 +49,6 @@ app.use((err, req, res, next) => {
       message: err.message || 'Internal Server Error',
       code: err.code || 'INTERNAL_ERROR'
     }
-  });
-});
-
-app.get('/api/auth/me', authMiddleware, (req, res) => {
-  res.status(200).json({
-    message: 'Xác thực thành công',
-    user: req.user
   });
 });
 
